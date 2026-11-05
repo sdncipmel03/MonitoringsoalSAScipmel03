@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Firebase SDK (ES Modules for Real-time Cloud Data Sync Across Devices) -->
     <script type="module">
@@ -44,19 +46,52 @@
         }
     </script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.9); }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
         @media print {
-            .no-print { display: none !important; }
-            body { background: white; }
-            .glass-card { border: 1px solid #ddd; box-shadow: none; }
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+            }
+
+            .glass-card {
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
         }
     </style>
 </head>
+
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
     <!-- Toast Notification Container -->
@@ -68,29 +103,36 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Brand / Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-200">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-200">
                         <i class="fa-solid fa-school text-xl"></i>
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <h1 class="font-bold text-lg text-slate-900 leading-tight" id="headerSchoolName">SDN Cipinang Melayu 03 P</h1>
-                            <span class="px-2 py-0.5 text-xs font-semibold bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200" id="headerAcademicYear">2026/2027 Ganjil</span>
+                            <h1 class="font-bold text-lg text-slate-900 leading-tight" id="headerSchoolName">SDN
+                                Cipinang Melayu 03 P</h1>
+                            <span
+                                class="px-2 py-0.5 text-xs font-semibold bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200"
+                                id="headerAcademicYear">2026/2027 Ganjil</span>
                         </div>
-                        <p class="text-xs text-slate-500 font-medium">Monitoring Soal, Kisi-Kisi, Layout & Kunci Jawaban SAS Kelas 1-6</p>
+                        <p class="text-xs text-slate-500 font-medium">Monitoring Soal, Kisi-Kisi, Layout & Kunci Jawaban
+                            SAS Kelas 1-6</p>
                     </div>
                 </div>
 
                 <!-- Admin Action & Status -->
                 <div class="flex items-center gap-3">
                     <!-- Deadline Badge -->
-                    <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-800 rounded-lg border border-amber-200 text-xs font-medium">
+                    <div
+                        class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-800 rounded-lg border border-amber-200 text-xs font-medium">
                         <i class="fa-regular fa-clock text-amber-600"></i>
                         <span>Batas Waktu: <strong id="headerDeadlineText">10 Des 2026, 23:59</strong></span>
                     </div>
 
                     <!-- Admin Auth Button -->
                     <div id="adminAuthArea">
-                        <button onclick="openLoginModal()" id="btnLogin" class="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl transition shadow-sm flex items-center gap-2">
+                        <button onclick="openLoginModal()" id="btnLogin"
+                            class="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl transition shadow-sm flex items-center gap-2">
                             <i class="fa-solid fa-lock"></i>
                             <span>Login Admin</span>
                         </button>
@@ -104,39 +146,51 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow">
 
         <!-- ADMIN BAR (Visible only when logged in as admin) -->
-        <div id="adminBanner" class="hidden mb-6 p-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl shadow-lg border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 no-print">
+        <div id="adminBanner"
+            class="hidden mb-6 p-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl shadow-lg border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 no-print">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+                <div
+                    class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
                     <i class="fa-solid fa-user-shield text-lg"></i>
                 </div>
                 <div>
                     <div class="flex items-center gap-2 flex-wrap">
                         <h2 class="font-bold text-sm text-white">Mode Administrator Aktif</h2>
-                        <span class="px-2 py-0.5 text-[10px] bg-emerald-500/20 text-emerald-300 rounded font-semibold border border-emerald-500/30">Super Admin Panitia SAS</span>
+                        <span
+                            class="px-2 py-0.5 text-[10px] bg-emerald-500/20 text-emerald-300 rounded font-semibold border border-emerald-500/30">Super
+                            Admin Panitia SAS</span>
                     </div>
-                    <p class="text-xs text-slate-300">Kelola status pengumpulan, atur folder Drive per kelas, cetak laporan, dan lihat riwayat berkas.</p>
+                    <p class="text-xs text-slate-300">Kelola status pengumpulan, atur folder Drive per kelas, cetak
+                        laporan, dan lihat riwayat berkas.</p>
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                <button onclick="openAdminLogModal()" class="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
+                <button onclick="openAdminLogModal()"
+                    class="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-list-check"></i> Log Berkas Terinput
                 </button>
-                <button onclick="openAdminMapelListModal()" class="px-3 py-2 bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
+                <button onclick="openAdminMapelListModal()"
+                    class="px-3 py-2 bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-book-bookmark"></i> Daftar Mapel Per Kelas
                 </button>
-                <button onclick="openEditSpecModal()" class="px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
+                <button onclick="openEditSpecModal()"
+                    class="px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-table"></i> Edit Info Soal
                 </button>
-                <button onclick="openAddMapelModal()" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
+                <button onclick="openAddMapelModal()"
+                    class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-plus"></i> Tambah Mapel
                 </button>
-                <button onclick="openSettingsModal()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+                <button onclick="openSettingsModal()"
+                    class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-gear"></i> Seting Drive & Web
                 </button>
-                <button onclick="generatePDFReport()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
+                <button onclick="generatePDFReport()"
+                    class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-file-pdf"></i> Cetak PDF
                 </button>
-                <button onclick="logoutAdmin()" class="px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs font-semibold rounded-xl border border-red-500/30 transition flex items-center gap-1.5">
+                <button onclick="logoutAdmin()"
+                    class="px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs font-semibold rounded-xl border border-red-500/30 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-right-from-bracket"></i> Keluar
                 </button>
             </div>
@@ -145,22 +199,27 @@
         <!-- HERO & DASHBOARD SUBMISSION MENU SECTION -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             <!-- Hero Banner -->
-            <div class="lg:col-span-2 p-6 bg-gradient-to-r from-indigo-700 via-indigo-800 to-slate-900 rounded-3xl text-white shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <div
+                class="lg:col-span-2 p-6 bg-gradient-to-r from-indigo-700 via-indigo-800 to-slate-900 rounded-3xl text-white shadow-xl relative overflow-hidden flex flex-col justify-between">
                 <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
 
                 <div>
-                    <span class="px-3 py-1 bg-indigo-500/30 border border-indigo-400/30 rounded-full text-[11px] font-semibold text-indigo-200 uppercase tracking-wider">
+                    <span
+                        class="px-3 py-1 bg-indigo-500/30 border border-indigo-400/30 rounded-full text-[11px] font-semibold text-indigo-200 uppercase tracking-wider">
                         Sumatif Akhir Semester (SAS) Ganjil Kelas 1 - 6
                     </span>
-                    <h2 class="text-xl sm:text-2xl font-extrabold mt-2 tracking-tight">Portal Monitoring Pengumpulan Soal SAS</h2>
+                    <h2 class="text-xl sm:text-2xl font-extrabold mt-2 tracking-tight">Portal Monitoring Pengumpulan
+                        Soal SAS</h2>
                     <p class="text-indigo-200 text-xs sm:text-sm mt-1 max-w-xl">
-                        Monitoring pengumpulan **Soal, Kisi-kisi, Layout, dan Kunci Jawaban** SAS secara terpusat & real-time.
+                        Monitoring pengumpulan **Soal, Kisi-kisi, Layout, dan Kunci Jawaban** SAS secara terpusat &
+                        real-time.
                     </p>
                 </div>
 
                 <!-- Countdown Timer Display -->
                 <div class="mt-6 pt-4 border-t border-white/10">
-                    <p class="text-[11px] uppercase font-semibold text-indigo-200 tracking-wider mb-2">Batas Akhir Pengumpulan Berkas:</p>
+                    <p class="text-[11px] uppercase font-semibold text-indigo-200 tracking-wider mb-2">Batas Akhir
+                        Pengumpulan Berkas:</p>
                     <div class="grid grid-cols-4 gap-2 text-center max-w-sm" id="countdownContainer">
                         <div class="bg-slate-900/60 p-2 rounded-xl border border-white/10">
                             <span id="cdDays" class="block text-lg font-black text-amber-400">00</span>
@@ -183,27 +242,33 @@
             </div>
 
             <!-- PROMINENT DASHBOARD UPLOAD CARD (Prominently Placed in Main View) -->
-            <div class="bg-white rounded-3xl p-6 border-2 border-indigo-200 shadow-md flex flex-col justify-between relative overflow-hidden">
+            <div
+                class="bg-white rounded-3xl p-6 border-2 border-indigo-200 shadow-md flex flex-col justify-between relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-full -z-0"></div>
                 <div class="relative z-10">
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-md shadow-indigo-200 mb-3">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-md shadow-indigo-200 mb-3">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                     </div>
                     <h3 class="font-extrabold text-base text-slate-900">PUSAT SETOR BERKAS SAS</h3>
-                    <p class="text-xs text-slate-500 mt-1">Bagi Bapak/Ibu Guru, silakan klik tombol di bawah untuk mengunggah Soal, Kisi-Kisi, Layout, atau Kunci Jawaban.</p>
+                    <p class="text-xs text-slate-500 mt-1">Bagi Bapak/Ibu Guru, silakan klik tombol di bawah untuk
+                        mengunggah Soal, Kisi-Kisi, Layout, atau Kunci Jawaban.</p>
                 </div>
 
                 <div class="mt-5 space-y-2.5 relative z-10">
-                    <button onclick="openUploadModal()" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-2xl transition shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 active:scale-95">
+                    <button onclick="openUploadModal()"
+                        class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-2xl transition shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 active:scale-95">
                         <i class="fa-solid fa-file-arrow-up text-sm"></i>
                         <span>UNGGAH / SETOR BERKAS NOW</span>
                     </button>
-                    <a id="btnDownloadKopPublic" href="#" target="_blank" onclick="handleDownloadKop(event)" class="w-full py-2.5 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs rounded-2xl transition flex items-center justify-center gap-2 active:scale-95">
+                    <a id="btnDownloadKopPublic" href="#" target="_blank" onclick="handleDownloadKop(event)"
+                        class="w-full py-2.5 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs rounded-2xl transition flex items-center justify-center gap-2 active:scale-95">
                         <i class="fa-solid fa-file-word text-blue-600 text-sm"></i>
                         <span>DOWNLOAD KOP SOAL (WORD)</span>
                     </a>
                     <div class="text-[10px] text-center text-slate-400 flex items-center justify-center gap-1">
-                        <i class="fa-solid fa-shield-halved text-emerald-500"></i> Otomatis Masuk Ke Google Drive Per Kelas
+                        <i class="fa-solid fa-shield-halved text-emerald-500"></i> Otomatis Masuk Ke Google Drive Per
+                        Kelas
                     </div>
                 </div>
             </div>
@@ -213,15 +278,18 @@
         <div class="glass-card rounded-3xl p-5 sm:p-6 mb-8 border border-slate-200 shadow-sm relative overflow-hidden">
             <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-3 border-b border-slate-100">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                         <i class="fa-solid fa-table-list text-lg"></i>
                     </div>
                     <div>
-                        <h3 class="font-extrabold text-base text-slate-800 tracking-tight">DETAIL JUMLAH DAN BENTUK SOAL SAS GANJIL</h3>
+                        <h3 class="font-extrabold text-base text-slate-800 tracking-tight">DETAIL JUMLAH DAN BENTUK SOAL
+                            SAS GANJIL</h3>
                         <p class="text-xs text-slate-500">Acuan penyusunan soal Sumatif Akhir Semester (Kelas 1 - 6)</p>
                     </div>
                 </div>
-                <span class="px-3 py-1 bg-amber-50 text-amber-800 rounded-full border border-amber-200 text-xs font-semibold flex items-center gap-1.5">
+                <span
+                    class="px-3 py-1 bg-amber-50 text-amber-800 rounded-full border border-amber-200 text-xs font-semibold flex items-center gap-1.5">
                     <i class="fa-solid fa-circle-info text-amber-600"></i> Pedoman Resmi Panitia SAS
                 </span>
             </div>
@@ -230,7 +298,8 @@
             <div class="overflow-x-auto custom-scrollbar mb-4">
                 <table class="w-full text-center border-collapse text-xs">
                     <thead>
-                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
+                        <tr
+                            class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
                             <th class="py-2.5 px-3 text-left">Kelas</th>
                             <th class="py-2.5 px-3">PG</th>
                             <th class="py-2.5 px-3">PGK</th>
@@ -249,7 +318,8 @@
             </div>
 
             <!-- Notes & Legend -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-3 border-t border-slate-100 bg-slate-50/50 p-3.5 rounded-2xl">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-3 border-t border-slate-100 bg-slate-50/50 p-3.5 rounded-2xl">
                 <div>
                     <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-1.5">
                         <i class="fa-solid fa-note-sticky text-indigo-500"></i> Singkatan Bentuk Soal:
@@ -278,15 +348,19 @@
         <div class="glass-card rounded-2xl p-5 mb-8 border border-slate-200 shadow-sm no-print">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-2 border-b border-slate-100">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
                         <i class="fa-solid fa-chart-pie text-sm"></i>
                     </div>
                     <div>
-                        <h3 class="font-extrabold text-sm text-slate-800">REKAPITULASI PROGRES PENGUMPULAN PER KELAS</h3>
-                        <p class="text-[11px] text-slate-500">Persentase kelengkapan berkas SAS per tingkat kelas (Kelas 1 - 6)</p>
+                        <h3 class="font-extrabold text-sm text-slate-800">REKAPITULASI PROGRES PENGUMPULAN PER KELAS
+                        </h3>
+                        <p class="text-[11px] text-slate-500">Persentase kelengkapan berkas SAS per tingkat kelas (Kelas
+                            1 - 6)</p>
                     </div>
                 </div>
-                <div class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200" id="globalTotalBadge">
+                <div class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200"
+                    id="globalTotalBadge">
                     Total: 0 Mapel
                 </div>
             </div>
@@ -294,7 +368,8 @@
             <div class="overflow-x-auto custom-scrollbar">
                 <table class="w-full text-center border-collapse text-xs">
                     <thead>
-                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
+                        <tr
+                            class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
                             <th class="py-2.5 px-3 text-left">Tingkat Kelas</th>
                             <th class="py-2.5 px-3">Jumlah Mapel</th>
                             <th class="py-2.5 px-3 text-blue-700">Soal SAS</th>
@@ -304,7 +379,8 @@
                             <th class="py-2.5 px-3 bg-indigo-50 text-indigo-900 font-extrabold">Total Kelengkapan</th>
                         </tr>
                     </thead>
-                    <tbody id="summaryClassTableBody" class="divide-y divide-slate-100 font-semibold text-slate-700 bg-white">
+                    <tbody id="summaryClassTableBody"
+                        class="divide-y divide-slate-100 font-semibold text-slate-700 bg-white">
                         <!-- Rendered dynamically -->
                     </tbody>
                 </table>
@@ -312,17 +388,20 @@
         </div>
 
         <!-- FILTER TOOLBAR (Public View - No print or export buttons) -->
-        <div class="glass-card p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-wrap gap-3 items-center justify-between no-print">
+        <div
+            class="glass-card p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-wrap gap-3 items-center justify-between no-print">
             <div class="flex flex-wrap gap-2 items-center w-full sm:w-auto flex-1">
                 <!-- Search Box -->
                 <div class="relative min-w-[220px] flex-1 sm:flex-none">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                    <input type="text" id="searchInput" placeholder="Cari mata pelajaran..." oninput="filterData()" 
+                    <i
+                        class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchInput" placeholder="Cari mata pelajaran..." oninput="filterData()"
                         class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none transition">
                 </div>
 
                 <!-- Grade Filter (Kelas 1 - 6) -->
-                <select id="filterGrade" onchange="filterData()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500">
+                <select id="filterGrade" onchange="filterData()"
+                    class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500">
                     <option value="ALL">Semua Tingkat Kelas</option>
                     <option value="Kelas 1">Kelas 1</option>
                     <option value="Kelas 2">Kelas 2</option>
@@ -333,7 +412,8 @@
                 </select>
 
                 <!-- Submission Status Filter -->
-                <select id="filterStatus" onchange="filterData()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500">
+                <select id="filterStatus" onchange="filterData()"
+                    class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500">
                     <option value="ALL">Semua Status Pengumpulan</option>
                     <option value="COMPLETE">Lengkap (4 Berkas Lengkap)</option>
                     <option value="INCOMPLETE">Belum Lengkap</option>
@@ -350,7 +430,8 @@
             <div class="overflow-x-auto custom-scrollbar">
                 <table class="w-full text-left border-collapse" id="monitoringTable">
                     <thead>
-                        <tr class="bg-slate-50/80 text-slate-600 text-[11px] font-bold uppercase tracking-wider border-b border-slate-200">
+                        <tr
+                            class="bg-slate-50/80 text-slate-600 text-[11px] font-bold uppercase tracking-wider border-b border-slate-200">
                             <th class="py-3.5 px-4 text-center w-12">No</th>
                             <th class="py-3.5 px-4">Mata Pelajaran</th>
                             <th class="py-3.5 px-4 text-center">Tingkat Kelas</th>
@@ -370,11 +451,13 @@
 
             <!-- Empty State -->
             <div id="emptyState" class="hidden p-12 text-center">
-                <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400 text-2xl mb-3">
+                <div
+                    class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400 text-2xl mb-3">
                     <i class="fa-solid fa-folder-open"></i>
                 </div>
                 <h4 class="font-bold text-slate-700 text-sm">Tidak ada data ditemukan</h4>
-                <p class="text-xs text-slate-500 mt-1">Coba sesuaikan kata kunci pencarian atau filter kelas yang Anda gunakan.</p>
+                <p class="text-xs text-slate-500 mt-1">Coba sesuaikan kata kunci pencarian atau filter kelas yang Anda
+                    gunakan.</p>
             </div>
         </div>
 
@@ -385,14 +468,19 @@
             </h4>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-50 border border-emerald-100">
-                    <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center text-white text-[9px]"><i class="fa-solid fa-check"></i></span>
+                    <span
+                        class="w-3.5 h-3.5 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center text-white text-[9px]"><i
+                            class="fa-solid fa-check"></i></span>
                     <div>
                         <span class="text-emerald-900 font-bold block">Sudah Diunggah:</span>
-                        <span class="text-emerald-700 text-[11px]">Berkas telah tersedia di Google Drive & terverifikasi.</span>
+                        <span class="text-emerald-700 text-[11px]">Berkas telah tersedia di Google Drive &
+                            terverifikasi.</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50 border border-rose-100">
-                    <span class="w-3.5 h-3.5 rounded-full bg-rose-500 flex-shrink-0 flex items-center justify-center text-white text-[9px]"><i class="fa-solid fa-xmark"></i></span>
+                    <span
+                        class="w-3.5 h-3.5 rounded-full bg-rose-500 flex-shrink-0 flex items-center justify-center text-white text-[9px]"><i
+                            class="fa-solid fa-xmark"></i></span>
                     <div>
                         <span class="text-rose-900 font-bold block">Belum Diunggah:</span>
                         <span class="text-rose-700 text-[11px]">Berkas belum dikirim atau belum ada tautan Drive.</span>
@@ -412,48 +500,65 @@
     <!-- ==================== MODALS SECTION ==================== -->
 
     <!-- ADMIN DAFTAR MAPEL PER KELAS MODAL (ADMIN ONLY) -->
-    <div id="adminMapelListModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-4xl w-full p-6 relative max-h-[90vh] flex flex-col">
-            <button onclick="closeModal('adminMapelListModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+    <div id="adminMapelListModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div
+            class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-4xl w-full p-6 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal('adminMapelListModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4 flex-shrink-0 flex items-center justify-between gap-4">
                 <div>
-                    <span class="text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 uppercase">Khusus Akses Admin</span>
+                    <span
+                        class="text-[10px] font-bold text-purple-600 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 uppercase">Khusus
+                        Akses Admin</span>
                     <h3 class="text-base font-bold text-slate-800 mt-1">Daftar Mata Pelajaran Per Kelas</h3>
-                    <p class="text-xs text-slate-500">Rincian mata pelajaran yang sudah diinput ke dalam sistem untuk Kelas 1 s/d Kelas 6.</p>
+                    <p class="text-xs text-slate-500">Rincian mata pelajaran yang sudah diinput ke dalam sistem untuk
+                        Kelas 1 s/d Kelas 6.</p>
                 </div>
-                <button onclick="openAddMapelModal()" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl shadow flex items-center gap-1.5 flex-shrink-0">
+                <button onclick="openAddMapelModal()"
+                    class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl shadow flex items-center gap-1.5 flex-shrink-0">
                     <i class="fa-solid fa-plus"></i> Tambah Mapel Baru
                 </button>
             </div>
 
-            <div class="overflow-y-auto custom-scrollbar flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-1">
+            <div
+                class="overflow-y-auto custom-scrollbar flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-1">
                 <div id="adminMapelGridContainer" class="contents">
                     <!-- Populated dynamically via JS -->
                 </div>
             </div>
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center flex-shrink-0 text-xs">
-                <span class="text-slate-500 font-semibold" id="adminMapelTotalText">Total 0 Mata Pelajaran Terdaftar</span>
-                <button onclick="closeModal('adminMapelListModal')" class="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl">Tutup</button>
+                <span class="text-slate-500 font-semibold" id="adminMapelTotalText">Total 0 Mata Pelajaran
+                    Terdaftar</span>
+                <button onclick="closeModal('adminMapelListModal')"
+                    class="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl">Tutup</button>
             </div>
         </div>
     </div>
 
     <!-- ADMIN DAFTAR BERKAS TERINPUT MODAL (ADMIN ONLY LOG) -->
-    <div id="adminLogModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-4xl w-full p-6 relative max-h-[90vh] flex flex-col">
-            <button onclick="closeModal('adminLogModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+    <div id="adminLogModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div
+            class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-4xl w-full p-6 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal('adminLogModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4 flex-shrink-0 flex items-center justify-between gap-4">
                 <div>
-                    <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase">Khusus Akses Admin</span>
+                    <span
+                        class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase">Khusus
+                        Akses Admin</span>
                     <h3 class="text-base font-bold text-slate-800 mt-1">Daftar Riwayat & Detail Berkas Terinput</h3>
-                    <p class="text-xs text-slate-500">Log lengkap semua berkas yang telah dikirim oleh guru beserta rincian nama file dan catatan.</p>
+                    <p class="text-xs text-slate-500">Log lengkap semua berkas yang telah dikirim oleh guru beserta
+                        rincian nama file dan catatan.</p>
                 </div>
-                <button onclick="confirmClearAllLogs()" class="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 text-xs font-bold rounded-xl border border-rose-200 transition flex items-center gap-1.5 flex-shrink-0">
+                <button onclick="confirmClearAllLogs()"
+                    class="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 text-xs font-bold rounded-xl border border-rose-200 transition flex items-center gap-1.5 flex-shrink-0">
                     <i class="fa-solid fa-trash-can"></i> Bersihkan Semua Log
                 </button>
             </div>
@@ -461,7 +566,8 @@
             <div class="overflow-y-auto custom-scrollbar flex-grow border border-slate-200 rounded-2xl">
                 <table class="w-full text-left border-collapse text-xs">
                     <thead>
-                        <tr class="bg-slate-100 text-slate-700 font-bold uppercase text-[10px] border-b border-slate-200 sticky top-0 bg-slate-100">
+                        <tr
+                            class="bg-slate-100 text-slate-700 font-bold uppercase text-[10px] border-b border-slate-200 sticky top-0 bg-slate-100">
                             <th class="p-3 text-center">No</th>
                             <th class="p-3">Waktu Input</th>
                             <th class="p-3">Mata Pelajaran</th>
@@ -479,34 +585,44 @@
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center flex-shrink-0 text-xs">
                 <span class="text-slate-500 font-semibold" id="adminLogTotalText">Total 0 Riwayat Berkas Terinput</span>
-                <button onclick="closeModal('adminLogModal')" class="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl">Tutup</button>
+                <button onclick="closeModal('adminLogModal')"
+                    class="px-4 py-2 bg-slate-900 text-white font-bold text-xs rounded-xl">Tutup</button>
             </div>
         </div>
     </div>
 
     <!-- CUSTOM CONFIRMATION MODAL (Replaces browser confirm()) -->
-    <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div id="confirmModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-sm w-full p-6 relative text-center">
-            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 mx-auto flex items-center justify-center text-xl mb-3" id="confirmModalIcon">
+            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 mx-auto flex items-center justify-center text-xl mb-3"
+                id="confirmModalIcon">
                 <i class="fa-solid fa-triangle-exclamation"></i>
             </div>
             <h3 class="text-base font-bold text-slate-800" id="confirmModalTitle">Konfirmasi Hapus</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-5" id="confirmModalMessage">Apakah Anda yakin ingin menghapus data ini?</p>
+            <p class="text-xs text-slate-500 mt-1 mb-5" id="confirmModalMessage">Apakah Anda yakin ingin menghapus data
+                ini?</p>
             <div class="flex items-center justify-center gap-2">
-                <button type="button" onclick="closeModal('confirmModal')" class="w-1/2 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition">Batal</button>
-                <button type="button" id="confirmModalActionBtn" class="w-1/2 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs rounded-xl transition shadow">Ya, Hapus</button>
+                <button type="button" onclick="closeModal('confirmModal')"
+                    class="w-1/2 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition">Batal</button>
+                <button type="button" id="confirmModalActionBtn"
+                    class="w-1/2 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs rounded-xl transition shadow">Ya,
+                    Hapus</button>
             </div>
         </div>
     </div>
 
     <!-- 1. LOGIN ADMIN MODAL -->
-    <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div id="loginModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-sm w-full p-6 relative">
-            <button onclick="closeModal('loginModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+            <button onclick="closeModal('loginModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="text-center mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 mx-auto flex items-center justify-center text-xl mb-3">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 mx-auto flex items-center justify-center text-xl mb-3">
                     <i class="fa-solid fa-user-gear"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-800">Login Admin SAS</h3>
@@ -515,13 +631,16 @@
             <form onsubmit="handleAdminLogin(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Username</label>
-                    <input type="text" id="loginUsername" value="admin" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <input type="text" id="loginUsername" value="admin" required
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <input type="password" id="loginPassword" placeholder="••••••••" required
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
                 </div>
-                <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-xl transition shadow-md shadow-indigo-200">
+                <button type="submit"
+                    class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-xl transition shadow-md shadow-indigo-200">
                     Masuk Mode Admin
                 </button>
             </form>
@@ -529,45 +648,54 @@
     </div>
 
     <!-- 2. TEACHER SUBMIT / UPLOAD MODAL WITH AUTOMATIC CLASS GOOGLE DRIVE LINK -->
-    <div id="uploadModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div id="uploadModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6 relative">
-            <button onclick="closeModal('uploadModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+            <button onclick="closeModal('uploadModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4">
                 <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
                     <i class="fa-solid fa-cloud-arrow-up text-indigo-600"></i> Form Pengumpulan Berkas SAS
                 </h3>
-                <p class="text-xs text-slate-500">Pilih mata pelajaran, unggah berkas langsung yang otomatis akan masuk ke Google Drive per kelas.</p>
+                <p class="text-xs text-slate-500">Pilih mata pelajaran, unggah berkas langsung yang otomatis akan masuk
+                    ke Google Drive per kelas.</p>
             </div>
 
             <form onsubmit="handleTeacherSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Pilih Mata Pelajaran & Kelas</label>
-                    <select id="uploadSubjectSelect" onchange="updateDriveFolderButton()" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select id="uploadSubjectSelect" onchange="updateDriveFolderButton()" required
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
                         <!-- Populated dynamically -->
                     </select>
                 </div>
 
                 <!-- Google Drive Class Folder Action -->
-                <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-center justify-between gap-3">
+                <div
+                    class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-center justify-between gap-3">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 text-base">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 text-base">
                             <i class="fa-brands fa-google-drive"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-xs text-emerald-900">Folder Google Drive Per Kelas</h4>
-                            <p class="text-[11px] text-emerald-700" id="driveFolderLabel">Otomatis terhubung ke folder kelas...</p>
+                            <p class="text-[11px] text-emerald-700" id="driveFolderLabel">Otomatis terhubung ke folder
+                                kelas...</p>
                         </div>
                     </div>
-                    <a id="btnOpenDriveFolder" href="#" target="_blank" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition shadow flex items-center gap-1.5 flex-shrink-0">
+                    <a id="btnOpenDriveFolder" href="#" target="_blank"
+                        class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition shadow flex items-center gap-1.5 flex-shrink-0">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Folder Drive
                     </a>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Jenis Berkas yang Dikirim</label>
-                    <select id="uploadFileType" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select id="uploadFileType" required
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="soal">Soal SAS (Word/PDF)</option>
                         <option value="kisikisi">Kisi-Kisi Soal (Word/Excel)</option>
                         <option value="layout">Layout Terformat (PDF)</option>
@@ -577,44 +705,54 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Pilih Berkas dari Komputer/HP</label>
-                    <input type="file" id="uploadFileInput" required 
-                           class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
-                    <span class="text-[10px] text-slate-400 mt-1 block">Berkas langsung tersimpan dan status diperbarui otomatis.</span>
+                    <input type="file" id="uploadFileInput" required
+                        class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+                    <span class="text-[10px] text-slate-400 mt-1 block">Berkas langsung tersimpan dan status diperbarui
+                        otomatis.</span>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Catatan Tambahan (Opsional)</label>
-                    <textarea id="uploadNotes" rows="2" placeholder="Contoh: Telah diunggah file revisi kunci jawaban..." 
-                              class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    <textarea id="uploadNotes" rows="2"
+                        placeholder="Contoh: Telah diunggah file revisi kunci jawaban..."
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
                 </div>
                 <div class="pt-2 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('uploadModal')" class="px-4 py-2 bg-slate-100 text-slate-600 font-semibold text-xs rounded-xl">Batal</button>
-                    <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-xl shadow">Unggah & Tandai Sudah Setor</button>
+                    <button type="button" onclick="closeModal('uploadModal')"
+                        class="px-4 py-2 bg-slate-100 text-slate-600 font-semibold text-xs rounded-xl">Batal</button>
+                    <button type="submit"
+                        class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-xl shadow">Unggah
+                        & Tandai Sudah Setor</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- 3. ADMIN STATUS MANAGEMENT MODAL (Simple 2 Statuses) -->
-    <div id="verifyModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div id="verifyModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-md w-full p-6 relative">
-            <button onclick="closeModal('verifyModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+            <button onclick="closeModal('verifyModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4">
-                <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase">Status Pengumpulan Admin</span>
+                <span
+                    class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase">Status
+                    Pengumpulan Admin</span>
                 <h3 class="text-base font-bold text-slate-800 mt-1" id="verifyModalTitle">Ubah Status Berkas SAS</h3>
                 <p class="text-xs text-slate-500" id="verifyModalSubtitle">Mapel: -</p>
             </div>
 
             <input type="hidden" id="verifySubjectId">
-            
+
             <div class="space-y-4">
                 <!-- Status Selectors for 2 states -->
                 <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Status Soal SAS</label>
-                        <select id="vStatusSoal" class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
+                        <select id="vStatusSoal"
+                            class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
                             <option value="uploaded">🟢 Sudah Diunggah</option>
                             <option value="unsubmitted">🔴 Belum Diunggah</option>
                         </select>
@@ -622,7 +760,8 @@
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Status Kisi-Kisi</label>
-                        <select id="vStatusKisi" class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
+                        <select id="vStatusKisi"
+                            class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
                             <option value="uploaded">🟢 Sudah Diunggah</option>
                             <option value="unsubmitted">🔴 Belum Diunggah</option>
                         </select>
@@ -630,7 +769,8 @@
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Status Layout Format</label>
-                        <select id="vStatusLayout" class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
+                        <select id="vStatusLayout"
+                            class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
                             <option value="uploaded">🟢 Sudah Diunggah</option>
                             <option value="unsubmitted">🔴 Belum Diunggah</option>
                         </select>
@@ -638,7 +778,8 @@
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Status Kunci Jawaban</label>
-                        <select id="vStatusKunci" class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
+                        <select id="vStatusKunci"
+                            class="w-full text-xs p-2 bg-white border border-slate-200 rounded-xl font-medium">
                             <option value="uploaded">🟢 Sudah Diunggah</option>
                             <option value="unsubmitted">🔴 Belum Diunggah</option>
                         </select>
@@ -647,26 +788,34 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Catatan Panitia / Admin</label>
-                    <textarea id="vAdminNotes" rows="2" placeholder="Catatan informasi..." class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none"></textarea>
+                    <textarea id="vAdminNotes" rows="2" placeholder="Catatan informasi..."
+                        class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none"></textarea>
                 </div>
 
                 <div class="flex justify-end gap-2 pt-2">
-                    <button onclick="closeModal('verifyModal')" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
-                    <button onclick="saveStatusVerification()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow">Simpan Status</button>
+                    <button onclick="closeModal('verifyModal')"
+                        class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
+                    <button onclick="saveStatusVerification()"
+                        class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow">Simpan
+                        Status</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 4. EDIT SPEC TABLE MODAL (Admin Only) -->
-    <div id="editSpecModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-3xl w-full p-6 relative max-h-[90vh] flex flex-col">
-            <button onclick="closeModal('editSpecModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+    <div id="editSpecModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div
+            class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-3xl w-full p-6 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal('editSpecModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4 flex-shrink-0">
                 <h3 class="text-base font-bold text-slate-800">Edit Acuan Detail Jumlah & Bentuk Soal</h3>
-                <p class="text-xs text-slate-500">Ubah jumlah soal (PG, PGK, B/S, MJD, Isian, Uraian) untuk Kelas 1 - 6.</p>
+                <p class="text-xs text-slate-500">Ubah jumlah soal (PG, PGK, B/S, MJD, Isian, Uraian) untuk Kelas 1 - 6.
+                </p>
             </div>
             <form onsubmit="handleSaveSpecTable(event)" class="flex flex-col flex-grow overflow-hidden">
                 <div class="overflow-y-auto custom-scrollbar flex-grow border border-slate-200 rounded-xl mb-4">
@@ -689,21 +838,28 @@
                     </table>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Catatan Khusus Matematika (Pisahkan dengan koma)</label>
-                    <input type="text" id="editMathNotesInput" class="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Catatan Khusus Matematika (Pisahkan
+                        dengan koma)</label>
+                    <input type="text" id="editMathNotesInput"
+                        class="w-full p-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
                 <div class="flex justify-end gap-2 flex-shrink-0">
-                    <button type="button" onclick="closeModal('editSpecModal')" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
-                    <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan Perubahan</button>
+                    <button type="button" onclick="closeModal('editSpecModal')"
+                        class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
+                    <button type="submit"
+                        class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan
+                        Perubahan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- 5. ADD / EDIT MAPEL MODAL -->
-    <div id="addMapelModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div id="addMapelModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-sm w-full p-6 relative">
-            <button onclick="closeModal('addMapelModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+            <button onclick="closeModal('addMapelModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4">
@@ -714,11 +870,13 @@
                 <input type="hidden" id="editMapelId">
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Mata Pelajaran</label>
-                    <input type="text" id="mapelName" required placeholder="Contoh: Seni Rupa" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+                    <input type="text" id="mapelName" required placeholder="Contoh: Seni Rupa"
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Tingkat Kelas</label>
-                    <select id="mapelGrade" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select id="mapelGrade" required
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="Kelas 1">Kelas 1</option>
                         <option value="Kelas 2">Kelas 2</option>
                         <option value="Kelas 3">Kelas 3</option>
@@ -728,67 +886,88 @@
                     </select>
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
-                    <button type="button" onclick="closeModal('addMapelModal')" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
-                    <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan Mapel</button>
+                    <button type="button" onclick="closeModal('addMapelModal')"
+                        class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
+                    <button type="submit"
+                        class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan
+                        Mapel</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- 6. SETTINGS & GOOGLE DRIVE MODAL -->
-    <div id="settingsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6 relative max-h-[90vh] flex flex-col">
-            <button onclick="closeModal('settingsModal')" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+    <div id="settingsModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div
+            class="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal('settingsModal')"
+                class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             <div class="mb-4 flex-shrink-0">
                 <h3 class="text-base font-bold text-slate-800">Pengaturan Sekolah & Google Drive Kelas</h3>
-                <p class="text-xs text-slate-500">Atur nama sekolah, batas waktu, link Kop Soal PDF, dan tautan folder Google Drive per kelas.</p>
+                <p class="text-xs text-slate-500">Atur nama sekolah, batas waktu, link Kop Soal PDF, dan tautan folder
+                    Google Drive per kelas.</p>
             </div>
 
-            <form onsubmit="handleSaveSettings(event)" class="space-y-4 overflow-y-auto custom-scrollbar flex-grow pr-1">
+            <form onsubmit="handleSaveSettings(event)"
+                class="space-y-4 overflow-y-auto custom-scrollbar flex-grow pr-1">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Sekolah</label>
-                        <input type="text" id="settingSchoolName" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                        <input type="text" id="settingSchoolName" required
+                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Tahun Ajaran / Semester</label>
-                        <input type="text" id="settingAcademicYear" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                        <input type="text" id="settingAcademicYear" required
+                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Batas Waktu Pengumpulan (Deadline)</label>
-                    <input type="datetime-local" id="settingDeadline" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Batas Waktu Pengumpulan
+                        (Deadline)</label>
+                    <input type="datetime-local" id="settingDeadline" required
+                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                 </div>
 
                 <div class="p-3 bg-blue-50/50 rounded-2xl border border-blue-100">
                     <label class="block text-xs font-semibold text-blue-900 mb-1 flex items-center gap-1.5">
-                        <i class="fa-solid fa-file-word text-blue-600"></i> Link / File KOP SOAL SAS (Format Word / DOCX)
+                        <i class="fa-solid fa-file-word text-blue-600"></i> Link / File KOP SOAL SAS (Format Word /
+                        DOCX)
                     </label>
-                    <input type="url" id="settingKopSoalUrl" placeholder="https://drive.google.com/file/d/... atau URL File Word Kop Soal" class="w-full px-3 py-2 bg-white border border-blue-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500">
-                    <span class="text-[10px] text-slate-400 mt-1 block">Tautan ini otomatis diakses tombol "DOWNLOAD KOP SOAL (WORD)" di Halaman Publik.</span>
+                    <input type="url" id="settingKopSoalUrl"
+                        placeholder="https://drive.google.com/file/d/... atau URL File Word Kop Soal"
+                        class="w-full px-3 py-2 bg-white border border-blue-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="text-[10px] text-slate-400 mt-1 block">Tautan ini otomatis diakses tombol "DOWNLOAD KOP
+                        SOAL (WORD)" di Halaman Publik.</span>
                 </div>
 
                 <!-- Hidden file input for importing JSON backup -->
-                <input type="file" id="importJsonFileInput" accept=".json" onchange="handleImportDataJson(event)" class="hidden">
+                <input type="file" id="importJsonFileInput" accept=".json" onchange="handleImportDataJson(event)"
+                    class="hidden">
 
                 <!-- SINKRONISASI & BACKUP DATA SECTION -->
                 <div class="p-3.5 bg-slate-100/90 rounded-2xl border border-slate-200">
                     <h4 class="font-bold text-xs text-slate-800 flex items-center justify-between">
                         <span><i class="fa-solid fa-cloud text-indigo-600"></i> Sinkronisasi Cloud Real-Time</span>
                     </h4>
-                    
-                    <div id="cloudStatusBadge" class="text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 mt-2 block font-medium">
-                        <i class="fa-solid fa-cloud-check text-emerald-500"></i> Terhubung & Tersinkron Otomatis di HP & Komputer Seluruh Guru
+
+                    <div id="cloudStatusBadge"
+                        class="text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 mt-2 block font-medium">
+                        <i class="fa-solid fa-cloud-check text-emerald-500"></i> Terhubung & Tersinkron Otomatis di HP &
+                        Komputer Seluruh Guru
                     </div>
-                    
+
                     <div class="grid grid-cols-2 gap-2 mt-3">
-                        <button type="button" onclick="exportDataJson()" class="py-2 px-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs rounded-xl border border-indigo-200 transition flex items-center justify-center gap-1.5 active:scale-95">
+                        <button type="button" onclick="exportDataJson()"
+                            class="py-2 px-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs rounded-xl border border-indigo-200 transition flex items-center justify-center gap-1.5 active:scale-95">
                             <i class="fa-solid fa-download"></i> Cadangkan Data (JSON)
                         </button>
-                        <button type="button" onclick="triggerImportData()" class="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl border border-emerald-200 transition flex items-center justify-center gap-1.5 active:scale-95">
+                        <button type="button" onclick="triggerImportData()"
+                            class="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl border border-emerald-200 transition flex items-center justify-center gap-1.5 active:scale-95">
                             <i class="fa-solid fa-upload"></i> Pulihkan Data (JSON)
                         </button>
                     </div>
@@ -800,39 +979,61 @@
                     </h4>
                     <div class="space-y-2 text-xs">
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 1</label>
-                            <input type="url" id="driveUrlKelas1" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                1</label>
+                            <input type="url" id="driveUrlKelas1"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 2</label>
-                            <input type="url" id="driveUrlKelas2" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                2</label>
+                            <input type="url" id="driveUrlKelas2"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 3</label>
-                            <input type="url" id="driveUrlKelas3" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                3</label>
+                            <input type="url" id="driveUrlKelas3"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 4</label>
-                            <input type="url" id="driveUrlKelas4" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                4</label>
+                            <input type="url" id="driveUrlKelas4"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 5</label>
-                            <input type="url" id="driveUrlKelas5" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                5</label>
+                            <input type="url" id="driveUrlKelas5"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas 6</label>
-                            <input type="url" id="driveUrlKelas6" placeholder="https://drive.google.com/drive/folders/..." class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
+                            <label class="block text-[11px] text-slate-600 font-semibold mb-0.5">Google Drive - Kelas
+                                6</label>
+                            <input type="url" id="driveUrlKelas6"
+                                placeholder="https://drive.google.com/drive/folders/..."
+                                class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs outline-none">
                         </div>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-between pt-3 border-t border-slate-100">
-                    <button type="button" onclick="resetDefaultData()" class="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-xl text-xs font-semibold border border-rose-200 transition">
+                    <button type="button" onclick="resetDefaultData()"
+                        class="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-xl text-xs font-semibold border border-rose-200 transition">
                         Reset Data Default
                     </button>
                     <div class="flex gap-2">
-                        <button type="button" onclick="closeModal('settingsModal')" class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
-                        <button type="submit" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan Pengaturan</button>
+                        <button type="button" onclick="closeModal('settingsModal')"
+                            class="px-4 py-2 bg-slate-100 text-slate-600 text-xs font-semibold rounded-xl">Batal</button>
+                        <button type="submit"
+                            class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow">Simpan
+                            Pengaturan</button>
                     </div>
                 </div>
             </form>
@@ -901,7 +1102,7 @@
             if (saved) {
                 try {
                     return JSON.parse(saved);
-                } catch(e) {
+                } catch (e) {
                     return JSON.parse(JSON.stringify(DEFAULT_STATE));
                 }
             }
@@ -915,7 +1116,7 @@
         }
 
         // Global Modal Helpers
-        window.openModal = function(id) {
+        window.openModal = function (id) {
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.remove('hidden');
@@ -923,7 +1124,7 @@
             }
         };
 
-        window.closeModal = function(id) {
+        window.closeModal = function (id) {
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.add('hidden');
@@ -931,11 +1132,11 @@
             }
         };
 
-        window.showConfirmModal = function(title, message, onConfirm) {
+        window.showConfirmModal = function (title, message, onConfirm) {
             document.getElementById('confirmModalTitle').textContent = title;
             document.getElementById('confirmModalMessage').textContent = message;
             const actionBtn = document.getElementById('confirmModalActionBtn');
-            actionBtn.onclick = function() {
+            actionBtn.onclick = function () {
                 onConfirm();
                 closeModal('confirmModal');
             };
@@ -943,13 +1144,13 @@
         };
 
         // Auth & Admin Actions
-        window.openLoginModal = function() {
+        window.openLoginModal = function () {
             document.getElementById('loginUsername').value = 'admin';
             document.getElementById('loginPassword').value = '';
             openModal('loginModal');
         };
 
-        window.handleAdminLogin = function(e) {
+        window.handleAdminLogin = function (e) {
             e.preventDefault();
             const pass = document.getElementById('loginPassword').value;
             if (pass) {
@@ -962,14 +1163,14 @@
             }
         };
 
-        window.logoutAdmin = function() {
+        window.logoutAdmin = function () {
             appData.isAdmin = false;
             saveState();
             showToast('Anda telah keluar dari mode admin', 'info');
         };
 
         // Teacher Submission Handlers
-        window.openUploadModal = function(preselectId = null) {
+        window.openUploadModal = function (preselectId = null) {
             const select = document.getElementById('uploadSubjectSelect');
             select.innerHTML = '';
             appData.subjects.forEach(sub => {
@@ -983,13 +1184,13 @@
             openModal('uploadModal');
         };
 
-        window.updateDriveFolderButton = function() {
+        window.updateDriveFolderButton = function () {
             const select = document.getElementById('uploadSubjectSelect');
             const subId = select.value;
             const subject = appData.subjects.find(s => s.id == subId);
             const driveBtn = document.getElementById('btnOpenDriveFolder');
             const driveLabel = document.getElementById('driveFolderLabel');
-            
+
             if (subject) {
                 const grade = subject.grade;
                 const folderUrl = (appData.settings.driveFolders && appData.settings.driveFolders[grade]) || 'https://drive.google.com';
@@ -1001,7 +1202,7 @@
             }
         };
 
-        window.handleTeacherSubmit = function(e) {
+        window.handleTeacherSubmit = function (e) {
             e.preventDefault();
             const subId = document.getElementById('uploadSubjectSelect').value;
             const fileType = document.getElementById('uploadFileType').value;
@@ -1037,7 +1238,7 @@
             showToast(`Berkas ${fileTypeLabel} untuk ${subject.name} (${subject.grade}) berhasil diunggah!`, 'success');
         };
 
-        window.handleDownloadKop = function(e) {
+        window.handleDownloadKop = function (e) {
             e.preventDefault();
             const url = appData.settings.kopSoalUrl;
             if (url && url !== '#') {
@@ -1051,21 +1252,22 @@
         async function initCloudSync() {
             let firebaseConfig = null;
             if (typeof __firebase_config !== 'undefined' && __firebase_config) {
-                try { firebaseConfig = JSON.parse(__firebase_config); } catch(e){}
-            } 
+                try { firebaseConfig = JSON.parse(__firebase_config); } catch (e) { }
+            }
             if (!firebaseConfig && appData.settings && appData.settings.firebaseConfigStr) {
-                try { firebaseConfig = JSON.parse(appData.settings.firebaseConfigStr); } catch(e){}
+                try { firebaseConfig = JSON.parse(appData.settings.firebaseConfigStr); } catch (e) { }
             }
 
             // Automatic cloud sync fallback for standalone deployment across all mobile & desktop browsers
             if (!firebaseConfig) {
                 firebaseConfig = {
-                    apiKey: "AIzaSyB_SasSdMonitoringPortal2026_AutoSyncKey",
-                    authDomain: "sas-sd-monitoring-portal.firebaseapp.com",
-                    projectId: "sas-sd-monitoring-portal",
-                    storageBucket: "sas-sd-monitoring-portal.appspot.com",
-                    messagingSenderId: "847291038472",
-                    appId: "1:847291038472:web:9876543210fedcba"
+                    apiKey: "AIzaSyAw9o9mEKDJyP7Vchiq0g5m3CQRQX6TcRM",
+                    authDomain: "monitoring-sas-cipmel03.firebaseapp.com",
+                    projectId: "monitoring-sas-cipmel03",
+                    storageBucket: "monitoring-sas-cipmel03.firebasestorage.app",
+                    messagingSenderId: "98696269163",
+                    appId: "1:98696269163:web:70973f215c8fb13642102e"
+                    measurementId: "G-TP4K1B0S32"
                 };
             }
 
@@ -1119,27 +1321,27 @@
             }
         }
 
-        window.exportDataJson = function() {
+        window.exportDataJson = function () {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `SAS_Monitoring_Setting_${new Date().toISOString().slice(0,10)}.json`);
+            downloadAnchor.setAttribute("download", `SAS_Monitoring_Setting_${new Date().toISOString().slice(0, 10)}.json`);
             document.body.appendChild(downloadAnchor);
             downloadAnchor.click();
             downloadAnchor.remove();
             showToast('File backup data (JSON) berhasil diunduh!', 'success');
         };
 
-        window.triggerImportData = function() {
+        window.triggerImportData = function () {
             document.getElementById('importJsonFileInput').click();
         };
 
-        window.handleImportDataJson = function(event) {
+        window.handleImportDataJson = function (event) {
             const file = event.target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
                     const importedData = JSON.parse(e.target.result);
                     if (importedData.subjects && importedData.settings) {
@@ -1154,7 +1356,7 @@
                     } else {
                         showToast('Format file JSON tidak sesuai!', 'error');
                     }
-                } catch(err) {
+                } catch (err) {
                     showToast('Gagal membaca file JSON!', 'error');
                 }
             };
@@ -1178,7 +1380,7 @@
             }
         }
 
-        window.resetDefaultData = function() {
+        window.resetDefaultData = function () {
             showConfirmModal(
                 'Reset Data Default',
                 'Apakah Anda yakin ingin mengembalikan seluruh data ke data awal pabrik?',
@@ -1192,7 +1394,7 @@
             );
         };
 
-        window.handleSaveSettings = function(e) {
+        window.handleSaveSettings = function (e) {
             e.preventDefault();
             appData.settings.schoolName = document.getElementById('settingSchoolName').value;
             appData.settings.academicYear = document.getElementById('settingAcademicYear').value;
@@ -1216,7 +1418,7 @@
             showToast('Pengaturan sekolah & link simpan berhasil!', 'success');
         };
 
-        window.openEditSpecModal = function() {
+        window.openEditSpecModal = function () {
             const tbody = document.getElementById('editSpecTableBody');
             tbody.innerHTML = '';
             appData.specTable.forEach((row, i) => {
@@ -1238,7 +1440,7 @@
             openModal('editSpecModal');
         };
 
-        window.handleSaveSpecTable = function(e) {
+        window.handleSaveSpecTable = function (e) {
             e.preventDefault();
             const inputs = document.querySelectorAll('#editSpecTableBody input');
             inputs.forEach(input => {
@@ -1264,7 +1466,7 @@
             showToast('Acuan detail soal SAS berhasil diperbarui!', 'success');
         };
 
-        window.openAddMapelModal = function(idToEdit = null) {
+        window.openAddMapelModal = function (idToEdit = null) {
             const title = document.getElementById('mapelModalTitle');
             const nameInp = document.getElementById('mapelName');
             const gradeInp = document.getElementById('mapelGrade');
@@ -1287,7 +1489,7 @@
             openModal('addMapelModal');
         };
 
-        window.handleSaveMapel = function(e) {
+        window.handleSaveMapel = function (e) {
             e.preventDefault();
             const name = document.getElementById('mapelName').value.trim();
             const grade = document.getElementById('mapelGrade').value;
@@ -1318,7 +1520,7 @@
             showToast('Mata pelajaran berhasil disimpan!', 'success');
         };
 
-        window.deleteMapel = function(id) {
+        window.deleteMapel = function (id) {
             showConfirmModal(
                 'Hapus Mata Pelajaran',
                 'Apakah Anda yakin ingin menghapus mata pelajaran ini?',
@@ -1333,7 +1535,7 @@
             );
         };
 
-        window.openVerifyModal = function(id) {
+        window.openVerifyModal = function (id) {
             const sub = appData.subjects.find(s => s.id == id);
             if (!sub) return;
 
@@ -1350,7 +1552,7 @@
             openModal('verifyModal');
         };
 
-        window.saveStatusVerification = function() {
+        window.saveStatusVerification = function () {
             const id = document.getElementById('verifySubjectId').value;
             const sub = appData.subjects.find(s => s.id == id);
             if (sub) {
@@ -1366,7 +1568,7 @@
             }
         };
 
-        window.openAdminMapelListModal = function() {
+        window.openAdminMapelListModal = function () {
             renderAdminMapelList();
             openModal('adminMapelListModal');
         };
@@ -1383,7 +1585,7 @@
 
                 const card = document.createElement('div');
                 card.className = "bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between";
-                
+
                 let listItems = mapels.map(m => `
                     <div class="flex items-center justify-between text-xs py-1 border-b border-slate-100 last:border-0">
                         <span class="font-medium text-slate-800">${m.name}</span>
@@ -1415,7 +1617,7 @@
             document.getElementById('adminMapelTotalText').textContent = `Total ${totalCount} Mata Pelajaran Terdaftar`;
         }
 
-        window.openAdminLogModal = function() {
+        window.openAdminLogModal = function () {
             renderAdminLogs();
             openModal('adminLogModal');
         };
@@ -1448,7 +1650,7 @@
             document.getElementById('adminLogTotalText').textContent = `Total ${logs.length} Riwayat Berkas Terinput`;
         }
 
-        window.deleteLogItem = function(idx) {
+        window.deleteLogItem = function (idx) {
             showConfirmModal(
                 'Hapus Log Berkas',
                 'Apakah Anda yakin ingin menghapus catatan log ini?',
@@ -1463,7 +1665,7 @@
             );
         };
 
-        window.confirmClearAllLogs = function() {
+        window.confirmClearAllLogs = function () {
             showConfirmModal(
                 'Bersihkan Semua Log',
                 'Apakah Anda yakin ingin menghapus SELURUH riwayat pengumpulan berkas?',
@@ -1476,7 +1678,7 @@
             );
         };
 
-        window.openSettingsModal = function() {
+        window.openSettingsModal = function () {
             document.getElementById('settingSchoolName').value = appData.settings.schoolName || '';
             document.getElementById('settingAcademicYear').value = appData.settings.academicYear || '';
             document.getElementById('settingDeadline').value = appData.settings.deadline || '';
@@ -1496,7 +1698,7 @@
             openModal('settingsModal');
         };
 
-        window.generatePDFReport = function() {
+        window.generatePDFReport = function () {
             const printWindow = window.open('', '_blank');
             const dateStr = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -1596,14 +1798,14 @@
             showToast('Laporan PDF dibuka di tab baru!', 'success');
         };
 
-        window.filterData = function() {
+        window.filterData = function () {
             renderApp();
         };
 
         function renderApp() {
             document.getElementById('headerSchoolName').textContent = appData.settings.schoolName;
             document.getElementById('headerAcademicYear').textContent = appData.settings.academicYear;
-            
+
             const dl = new Date(appData.settings.deadline);
             document.getElementById('headerDeadlineText').textContent = isNaN(dl) ? appData.settings.deadline : dl.toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
 
@@ -1663,7 +1865,7 @@
             grades.forEach(g => {
                 const mapels = appData.subjects.filter(s => s.grade === g);
                 const count = mapels.length;
-                
+
                 if (count === 0) {
                     summaryTbody.innerHTML += `
                         <tr class="border-b border-slate-100">
@@ -1739,7 +1941,7 @@
                     const uploadedCount = [sub.soal, sub.kisikisi, sub.layout, sub.kunci].filter(i => i === 'uploaded').length;
                     const pct = Math.round((uploadedCount / 4) * 100);
 
-                    const badge = (status) => status === 'uploaded' 
+                    const badge = (status) => status === 'uploaded'
                         ? `<span class="px-2.5 py-1 rounded-xl bg-emerald-100 text-emerald-800 font-bold text-[11px] inline-flex items-center gap-1"><i class="fa-solid fa-circle-check text-emerald-600"></i> Sudah</span>`
                         : `<span class="px-2.5 py-1 rounded-xl bg-rose-100 text-rose-800 font-bold text-[11px] inline-flex items-center gap-1"><i class="fa-solid fa-circle-xmark text-rose-500"></i> Belum</span>`;
 
@@ -1841,7 +2043,7 @@
             }, 3500);
         }
 
-        window.onload = function() {
+        window.onload = function () {
             renderApp();
             setInterval(updateCountdown, 1000);
             updateCountdown();
@@ -1849,4 +2051,5 @@
         };
     </script>
 </body>
+
 </html>
